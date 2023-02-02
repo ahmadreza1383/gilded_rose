@@ -1,0 +1,8 @@
+services:
+  php:
+    image: "php:latest"
+    container_name: "gilded_rose"
+    tty: true
+    stdin_open: true
+    volumes:
+        - "/mnt/part1/projects/php/gilded:/mnt"
