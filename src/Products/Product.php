@@ -3,6 +3,7 @@
 namespace src\Products;
 
 use src\Quality;
+use src\SellIn;
 
 class Product
 {
@@ -13,6 +14,6 @@ class Product
     public function __construct($quality=null, $sellIn=null)
     {
         $this->quality = new Quality($quality);
-        $this->sellIn = $sellIn;
+        $this->sellIn = new SellIn($sellIn);
     }
 }

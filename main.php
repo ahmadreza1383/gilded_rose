@@ -18,8 +18,10 @@ class Main
             $index = 0;
 
             do {  
+                if(isset($item['methods'][$index])){
                 $method = $item['methods'][$index];
                 $class->$method();
+                }
                 $index++;
             } while ($index <  count($item['methods']));
         }

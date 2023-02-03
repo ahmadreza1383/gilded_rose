@@ -13,4 +13,9 @@ class Torshi extends Product
     {
         return $this->quality->increamentQuality();
     }
+
+    public function getSellIn()
+    {
+        return $this->sellIn->getSellIn();
+    }
 }
