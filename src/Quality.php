@@ -4,7 +4,6 @@ namespace src;
 
 class Quality
 {
-
     private $quality;
 
     private $maxQualtily = 50;

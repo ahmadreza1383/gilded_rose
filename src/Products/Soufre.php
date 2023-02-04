@@ -2,29 +2,19 @@
 
 namespace src\Products;
 
-use src\SellIn;
+use src\Interface\Product as InterfaceProduct;
 
-class Soufre
+class Soufre extends Product implements InterfaceProduct
 {
-    public $quality;
-
-    public SellIn $sellIn;
-
-    public function __construct($quality=null, $sellIn=null)
-    {
-        $this->quality = $quality;
-        $this->sellIn = new SellIn($sellIn);
-    }
-
     public function perSellIn()
     {
-        return $this->quality;
+        return $this->quality->getQuality();
     }
 
     public function handleAfterSellIn()
     {
         $this->sellIn->getSellIn();
-        return $this->quality;
+        return $this->quality->getQuality();
     }
 
     public function getSellIn()

@@ -2,7 +2,10 @@
 
 namespace src\Products;
 
-class Torshi extends Product
+use src\Interface\Product as InterfaceProduct;
+use src\Products\Product;
+
+class Torshi extends Product implements InterfaceProduct
 {
     public function perSellIn()
     {

@@ -32,52 +32,26 @@ class GildedRose
         return $this->sellIn;
     }
 
-    public function tick()
+    private function map($name)
     {
-        $map = [
+        return[
             'ترشی' => "src\Products\Torshi",
             'گوگرد' => "src\Products\Soufre",
             'عادی' => "src\Products\Normal",
             'بلیت هواپیما' => "src\Products\Ticket",
-        ];
-        
-        $class = $map[$this->name];
-        $class = new $class($this->quality, $this->sellIn);      
+        ][$name];
+    }
+
+    public function tick()
+    {
+        $class = $this->map($this->name);
+
+        $class = new $class($this->quality, $this->sellIn); 
+
         $this->quality = $class->perSellIn(); 
         $this->sellIn = $class->getSellIn();
 
-        if ($this->sellIn >= 0) {
-            return ;
-        }
-
+        if ($this->sellIn < 0) 
         $this->quality = $class->handleAfterSellIn(); 
-
     }
 }
-
-// class SellIn
-// {
-//     private int $sellIn;
-
-//     public function __construct($sellIn)
-//     {
-//         $this->sellIn = $sellIn;
-//     }
-
-//     /**
-//      * @param boolean $timeStatus Reduce the time remaining for the sales deadline
-//      */
-//     public function getSellIn($timeStatus=true)
-//     {
-//         return $this->calcTime($timeStatus);
-//     }
-
-//     private function calcTime($status)
-//     {
-//         if($status)
-//         return $this->sellIn - 1 ;
-
-//         return $this->sellIn;
-//     }
-
-// }

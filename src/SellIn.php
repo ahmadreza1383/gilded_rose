@@ -26,5 +26,4 @@ class SellIn
 
         return $this->sellIn;
     }
-
 }
