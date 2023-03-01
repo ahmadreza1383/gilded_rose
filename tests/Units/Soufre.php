@@ -1,6 +1,8 @@
 <?php
 
-namespace tests;
+namespace tests\Units;
+
+use tests\TestBase;
 
 class Soufre extends TestBase
 {
