@@ -1,7 +1,7 @@
 <?php
 namespace System\Modules;
 
-class SearchDirectory
+class SearchDirectoryModule
 {
     private $directories = [];
 
@@ -21,14 +21,9 @@ class SearchDirectory
         return $this->directories;
     }
 
-    private function removeDirMark(array $array)
-    {
-        return array_diff($array, array('..', '.'));
-    }
-
     private function scanDirectory($path)
     {
-        return $this->removeDirMark(scandir($path));
+        return removeDirMark(scandir($path));
     }
 
     private function checkDir($path)
