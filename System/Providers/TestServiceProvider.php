@@ -1,17 +1,14 @@
 <?php 
 namespace System\Providers;
 
-use System\Modules\SearchFiles;
-use System\Modules\SearchDirectory;
+use System\Loader\ClassLoader;
 
 class TestServiceProvider
 {
-    const DIRPATH = __DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR."tests/Units";
+    public const DIRPATH = __DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR;
 
     public function load()
     {
-        $directories = new SearchDirectory(self::DIRPATH);
-
-        var_dump((new SearchFiles($directories->get()))->get());
+        return (new ClassLoader(self::DIRPATH."tests".DIRECTORY_SEPARATOR."Units"))->load();
     }
 }
