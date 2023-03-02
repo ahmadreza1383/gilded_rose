@@ -1,6 +1,8 @@
 <?php 
 namespace System;
 
+require __DIR__.DIRECTORY_SEPARATOR."helpers.php";
+
 use System\Providers\TestServiceProvider;
 
 class Application
@@ -8,7 +10,5 @@ class Application
     public function up()
     {
         (new TestServiceProvider)->load();
-        
-        echo "The tests were run successfully\n";
     }
 }
