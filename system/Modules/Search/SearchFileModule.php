@@ -1,5 +1,5 @@
 <?php
-namespace System\Modules;
+namespace System\Modules\Search;
 
 class SearchFileModule
 {

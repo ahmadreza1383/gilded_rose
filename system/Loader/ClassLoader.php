@@ -1,8 +1,8 @@
 <?php
 namespace System\Loader;
 
-use System\Modules\SearchDirectoryModule;
-use System\Modules\SearchFileModule;
+use System\Modules\Search\SearchDirectoryModule;
+use System\Modules\Search\SearchFileModule;
 use System\Providers\TestServiceProvider;
 
 class ClassLoader

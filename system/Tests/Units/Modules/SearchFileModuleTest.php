@@ -1,9 +1,7 @@
 <?php 
 namespace System\Tests\Units\Modules;
 
-use System\Application;
-use System\Modules\SearchFileModule;
-use System\Providers\TestServiceProvider;
+use System\Modules\Search\SearchFileModule;
 
 class SearchFileModuleTest
 {
@@ -12,7 +10,9 @@ class SearchFileModuleTest
     {
         $response = (new SearchFileModule([self::DIRPATH]))->get();
         
-        assert($response[0] == '/mnt/System/Tests/Units/Modules/../../Application.php');
+        assert($response[0] == self::DIRPATH.DIRECTORY_SEPARATOR."Application.php");
     }
+
+    
 
 }

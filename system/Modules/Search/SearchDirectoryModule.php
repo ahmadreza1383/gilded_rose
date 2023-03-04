@@ -1,5 +1,5 @@
 <?php
-namespace System\Modules;
+namespace System\Modules\Search;
 
 class SearchDirectoryModule
 {
@@ -10,15 +10,15 @@ class SearchDirectoryModule
         $this->currentPath($basePath);
     }
 
+    public function get()
+    {
+        return $this->directories;
+    }
+
     private function currentPath($path)
     {
         if($this->checkDir($path))
             $this->addDirectory($path);
-    }
-
-    public function get()
-    {
-        return $this->directories;
     }
 
     private function scanDirectory($path)
@@ -36,6 +36,7 @@ class SearchDirectoryModule
         foreach($this->scanDirectory($path) as $file)
         {
             $file = $path.DIRECTORY_SEPARATOR.$file;
+
             if($this->checkDir($file))
                 $this->addDirectory($file);
         }
